@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fuente personalizada */
+body {
+  font-family: "Tektur", sans-serif;
+}
+
+/* Estilos de la barra de navegación */
+.navbar {
+  display: flex;
+  background: rgb(68,139,168);
+  background: linear-gradient(317deg, rgba(68,139,168,1) 0%, rgba(60,116,151,1) 17%, rgba(65,69,87,1) 100%);
+  width: 100%;
+  height: 20vh;
+  align-items: center;
+}
+
+/* Animación de brillo (aplica a los trazos del logo) */
+@keyframes glow {
+  0% {
+    stroke-width: 2;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+    stroke-dashoffset: 1000; /* Inicia el trazado oculto */
+  }
+  50% {
+    stroke-width: 4;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+    stroke-dashoffset: 0; /* El brillo cubre todo el trazo */
+  }
+  100% {
+    stroke-width: 2;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+    stroke-dashoffset: 1000; /* El brillo regresa fuera de la vista */
+  }
+}
+
+/* Contenedor del logo */
+.logo-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  height: auto;
+  overflow: hidden; /* Evita que el brillo sobresalga */
+}
+
+/* Estilo del SVG */
+.logo-container svg {
+  width: 100%;
+  height: auto;
+  animation: glow 3s infinite ease-in-out; /* Animación de resplandor */
+}
+
+/* Añadir el resplandor en los trazos (líneas del logo) */
+.logo-container path {
+  fill: none;  /* Solo afecta el borde (trazo) */
+  stroke: white; /* Color del trazo */
+  stroke-width: 2; /* Ancho inicial del trazo */
+  stroke-dasharray: 1000; /* Hace que el trazo sea una línea discontinua */
+  stroke-dashoffset: 1000; /* Inicia el trazo completamente oculto */
+  animation: glow 3s infinite ease-in-out; /* Animación del brillo */
+}
+
+/* From Uiverse.io by Pradeepsaranbishnoi */ 
+.social-links,.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-links{
+  position: absolute;
+  right: 0;
+}
+
+.social-btn {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  font-family: 'Titillium Web', sans-serif;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255,0);
+  margin: 5px;
+  transition: 0.3s;
+  justify-content: center;
+}
+
+.social-btn svg {
+  height: 24px;
+  width: 24px;
+}
+
+.social-btn a {
+  text-decoration: none;
+  color: #fff;
+  width: 0px;
+  overflow: hidden;
+  transition: 0.3s;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.social-btn:hover {
+  width: auto;
+  border-radius: 5px;
+}
+
+.social-btn:hover a {
+  padding: 2px;
+  width: 90%;
+  color: #fff;
+}
+
+#twitter svg {
+  fill: #1da1f2;
+}
+
+#linkedin svg {
+  fill: #0e76a8;
+}
+
+#github {
+  fill: #333;
+}
+
+.news-bar{
+  width: 100%;
+  background: rgb(68,139,168);
+  background: linear-gradient(317deg, rgba(68,139,168,1) 0%, rgba(60,116,151,1) 17%, rgba(65,69,87,1) 100%);
+  color: #fff;
+  padding: 10px 0;
+  position: fixed;
+}
+
+.news-content{
+  text-align: center;
+  animation: ticker 10s linear infinite;
+}
+
+
