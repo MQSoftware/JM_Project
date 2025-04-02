@@ -15,7 +15,7 @@ body {
   background: rgb(68,139,168);
   background: linear-gradient(317deg, rgba(68,139,168,1) 0%, rgba(60,116,151,1) 17%, rgba(65,69,87,1) 100%);
   width: 100%;
-  height: 20vh;
+  height: auto;
   align-items: center;
 }
 
@@ -144,4 +144,9 @@ body {
   animation: ticker 10s linear infinite;
 }
 
-
+@media (max-width: 760px){
+  .navbar{
+    width: 100%;
+    height: 5vh;
+  }
+}
