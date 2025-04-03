@@ -8,9 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
     <title>JM - Advertising</title>
 </head>
 <body>
+    <img class="fondo-Concierto" src="./img/FondoConcierto.png" alt="">
     <header class="navbar">
         <div class="logo-container">
             <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" viewBox="0 0 500 500">
@@ -32,11 +34,20 @@
             </div>
         </div>
     </header>
-    <div class="news-bar">
-        <p class="news-content">
-            JÓVENES MACEDONIA CENTRAL
-        </p>
+    <audio id="cancion" src="./Naciones Mix - Encuéntranos Espíritu Santo _ New Wine [h-FLcEQgiCQ].mp3"></audio>  
+    <div class="game-box">
+        <button id="play">▶ Iniciar Juego</button>
+
+        <div id="puntos">0</div>
+        <div id="combos">Combo: 0</div>
+        <div id="booster">x1</div>
+
+        <div id="botones">
+            <div class="boton" id="boton-0"></div>
+            <div class="boton" id="boton-1"></div>
+            <div class="boton" id="boton-2"></div>
+            <div class="boton" id="boton-3"></div>
+        </div>
     </div>
 </body>
-
 </html>

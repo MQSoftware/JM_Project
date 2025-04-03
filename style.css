@@ -9,14 +9,27 @@ body {
   font-family: "Tektur", sans-serif;
 }
 
+/* IMAGEN DE FONDO*/
+.fondo-Concierto{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 0;
+}
+
+
+/* NAVBAR FOR PAGE MACEDONIA'S YOUNGS*/
+
 /* Estilos de la barra de navegación */
 .navbar {
   display: flex;
-  background: rgb(68,139,168);
-  background: linear-gradient(317deg, rgba(68,139,168,1) 0%, rgba(60,116,151,1) 17%, rgba(65,69,87,1) 100%);
+  background-color: rgba(0,0,0,0);
+  backdrop-filter: blur(10px);
   width: 100%;
   height: 18vh;
   align-items: center;
+  position: absolute;
+  z-index: 1;
 }
 
 /* Animación de brillo (aplica a los trazos del logo) */
@@ -82,7 +95,7 @@ body {
   cursor: pointer;
   height: 50px;
   width: 50px;
-  font-family: 'Titillium Web', sans-serif;
+  font-family: "Tektur", sans-serif;
   color: #333;
   border-radius: 10px;
   box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
@@ -130,23 +143,79 @@ body {
   fill: #333;
 }
 
-.news-bar{
-  width: 100%;
-  background: rgb(68,139,168);
-  background: linear-gradient(317deg, rgba(68,139,168,1) 0%, rgba(60,116,151,1) 17%, rgba(65,69,87,1) 100%);
-  color: #fff;
-  padding: 10px 0;
-  position: fixed;
-}
-
-.news-content{
-  text-align: center;
-  animation: ticker 10s linear infinite;
-}
-
 @media (max-width: 768px) {
   .navbar {
     width: 100%;
     height: 20%;
   }
+}
+
+/* GAME'S SITE (ADVERTISEMENT)*/
+
+.game-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+}
+
+#play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  padding: 10px 20px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 10; /* Para que quede sobre todo */
+}
+
+#botones {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.boton {
+  width: 80px;
+  height: 80px;
+  background: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  border: 5px solid #333;
+  transition: background 0.2s;
+}
+
+#boton-2 { box-shadow: inset 0 0 0 5px red; }
+#boton-3 { box-shadow: inset 0 0 0 5px yellow; }
+#boton-0 { box-shadow: inset 0 0 0 5px blue; }
+#boton-1 { box-shadow: inset 0 0 0 5px green; }
+
+/* Iluminar el botón activo */
+#botones.boton-0 #boton-0 { background: #00f8; }
+#botones.boton-1 #boton-1 { background: #0f08; }
+#botones.boton-2 #boton-2 { background: #f008; }
+#botones.boton-3 #boton-3 { background: #ff08; }
+
+#puntos, #combos {
+  position: absolute;
+  top: 10%;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px black;
+}
+
+#booster {
+  position: absolute;
+  top: 20%;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px black;
 }
