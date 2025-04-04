@@ -1,0 +1,17 @@
+{
+  "name": "jm_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "music-tempo": "^1.0.3",
+    "node-fetch": "^3.3.2",
+    "wav-decoder": "^1.3.0"
+  }
+}

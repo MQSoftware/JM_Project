@@ -152,6 +152,7 @@ body {
 
 /* GAME'S SITE (ADVERTISEMENT)*/
 
+
 .game-box {
   width: 100%;
   height: 82%;
@@ -174,7 +175,7 @@ body {
   backdrop-filter: blur;
   cursor: pointer;
   transition: background 0.3s;
-  z-index: 10; /* Para que quede sobre todo */
+  z-index: 10;
 }
 
 #botones {
@@ -201,32 +202,45 @@ body {
 #boton-0 { box-shadow: inset 0 0 0 5px blue; }
 #boton-1 { box-shadow: inset 0 0 0 5px green; }
 
-/* Iluminar el botón activo */
-#botones.boton-0 #boton-0 { background: #00f8; }
-#botones.boton-1 #boton-1 { background: #0f08; }
-#botones.boton-2 #boton-2 { background: #f008; }
-#botones.boton-3 #boton-3 { background: #ff08; }
-
-/* Mejorar la visibilidad de los textos */
 #puntos, #combos, #booster {
   position: absolute;
-  color: white; /* Asegura que sea visible */
+  color: white;
   font-size: 2rem;
   text-shadow: 2px 2px 4px black;
 }
 
-#puntos {
-  top: 5%;
-  left: 10%;
+#puntos { top: 5%; left: 10%; }
+#combos { top: 5%; left: 50%; transform: translateX(-50%); }
+#booster { top: 5%; right: 10%; }
+
+#contenedor-notas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
-#combos {
-  top: 5%;
-  left: 50%;
-  transform: translateX(-50%);
+.nota {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: calc(50% - 40px); /* centra horizontalmente */
+  top: 0;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.8;
 }
 
-#booster {
-  top: 5%;
-  right: 10%;
+.nota.boton-0 { left: 25%; background-color: blue; }
+.nota.boton-1 { left: 40%; background-color: green; }
+.nota.boton-2 { left: 55%; background-color: red; }
+.nota.boton-3 { left: 70%; background-color: yellow; }
+
+@keyframes caer {
+  to {
+    transform: translateY(90vh);
+    opacity: 0;
+  }
 }
