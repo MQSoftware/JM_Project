@@ -28,11 +28,19 @@ function programarNotas() {
 }
 
 function lanzarNota(index) {
-  activo = Math.floor(Math.random() * 4)
+  const botones = document.querySelectorAll(".boton")
+  const botonAsignado = Math.floor(Math.random() * botones.length) // Elige un botón al azar
+  const rect = botones[botonAsignado].getBoundingClientRect() // Obtiene la posición del botón
+  const colores = ["blue", "green", "red", "yellow"]
+
   const nota = document.createElement("div")
-  nota.classList.add("nota", `boton-${activo}`)
-  nota.dataset.boton = activo
+  nota.classList.add("nota")
+  nota.dataset.boton = botonAsignado
   nota.dataset.id = index
+  nota.style.backgroundColor = colores[botonAsignado]
+
+  // Posiciona la nota centrada sobre el botón correspondiente
+  nota.style.left = `${rect.left + rect.width / 2 - 42.5}px` // Centra la nota sobre el botón
   nota.style.animation = `caer ${DURACION_CAIDA}ms linear forwards`
 
   nota.addEventListener("animationend", () => {
@@ -40,8 +48,9 @@ function lanzarNota(index) {
   })
 
   document.getElementById("contenedor-notas").appendChild(nota)
-  notas.push({ id: index, boton: activo })
+  notas.push({ id: index, boton: botonAsignado })
 }
+
 
 function botonPulsado(id) {
   const nota = notas.find(n => n.boton == id)

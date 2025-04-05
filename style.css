@@ -7,6 +7,7 @@
 /* Fuente personalizada */
 body {
   font-family: "Tektur", sans-serif;
+  overflow: hidden;
 }
 
 /* IMAGEN DE FONDO*/
@@ -315,29 +316,21 @@ button {
 
 #botones {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, -49%);
-  width: 100vw;
+  bottom: 5%;
+  width: 100%;
   display: flex;
-  justify-content: center;
-  gap: 49px;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 5%;
 }
 
 .boton {
-  width: 85px;
-  height: 85px;
-  background: #ccc;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  display: inline-block;
-  border: 5px solid #333;
-  transition: background 0.2s;
+  background: #ccc;
+  border: 4px solid #333;
 }
-
-#boton-2 { box-shadow: inset 0 0 0 5px red; }
-#boton-3 { box-shadow: inset 0 0 0 5px yellow; }
-#boton-0 { box-shadow: inset 0 0 0 5px blue; }
-#boton-1 { box-shadow: inset 0 0 0 5px green; }
 
 #puntos, #combos, #booster {
   position: absolute;
@@ -353,10 +346,8 @@ button {
 #contenedor-notas {
   position: absolute;
   top: 0;
-  left: 48.5%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-  height: 10%;
+  width: 100vw;
+  height: 10vh;
   pointer-events: none;
 }
 
@@ -364,21 +355,22 @@ button {
   width: 80px;
   height: 80px;
   position: absolute;
-  left: calc(50% - 40px); /* centra horizontalmente */
   top: 0;
   border-radius: 50%;
   background-color: white;
   opacity: 0.8;
+  animation: caer 3000ms linear forwards;
 }
 
-.nota.boton-0 { left: 25%; background-color: blue; }
-.nota.boton-1 { left: 40%; background-color: green; }
-.nota.boton-2 { left: 55%; background-color: red; }
-.nota.boton-3 { left: 70%; background-color: yellow; }
+/* Posicionamiento responsive por índice */
+.nota.boton-0 { background-color: blue; }
+.nota.boton-1 { background-color: green; }
+.nota.boton-2 { background-color: red; }
+.nota.boton-3 { background-color: yellow; }
 
 @keyframes caer {
   to {
-    transform: translateY(67vh);
+    transform: translateY(75vh);
     opacity: 0;
   }
 }
