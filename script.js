@@ -8,6 +8,10 @@ let notas = []
 let tiemposNotas = []
 
 function iniciarJuego() {
+  document.getElementById("cadena-izq").style.display = "block"
+  document.getElementById("cadena-der").style.display = "block"
+  document.getElementById("cadena-izq").classList.remove("rota")
+  document.getElementById("cadena-der").classList.remove("rota")
   cancion.play()
   indiceNota = 0
   puntos = 0
@@ -89,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("play").addEventListener("click", iniciarJuego)
 
   // Cargar el archivo tiemposNotas.json
-  fetch("tiemposNotas.json")
+  fetch("tiemposNotasL.json")
     .then(res => res.json())
     .then(data => {
       tiemposNotas = data
@@ -99,3 +103,24 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error cargando tiemposNotas.json:", err)
     })
 })
+
+// Procesos de cadena
+
+function romperCadena() {
+  const cadenaIzq = document.getElementById("cadena-izq")
+  const cadenaDer = document.getElementById("cadena-der")
+
+  if (cadenaIzq && cadenaDer) {
+    cadenaIzq.classList.add("rota")
+    cadenaDer.classList.add("rota")
+
+    // Opcional: desaparecer las mitades después de un tiempo
+    setTimeout(() => {
+      cadenaIzq.style.display = "none"
+      cadenaDer.style.display = "none"
+    }, 1000)
+  }
+}
+
+// LLamando a evento para que se rompa la cadena
+cancion.addEventListener("ended", romperCadena)

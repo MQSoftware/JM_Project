@@ -3,7 +3,7 @@ const wav = require("wav-decoder")
 const MusicTempo = require("music-tempo")
 
 // Leer archivo WAV
-const buffer = fs.readFileSync("./guitar_alistate.wav")
+const buffer = fs.readFileSync("./Libre_Soy_Barak.wav")
 
 wav.decode(buffer).then(audioData => {
   const channelData = audioData.channelData[0] // Solo usamos el canal izquierdo
@@ -21,6 +21,6 @@ wav.decode(buffer).then(audioData => {
   }
 
   // Guardar archivo .json
-  fs.writeFileSync("tiemposNotas.json", JSON.stringify(tiemposNotas, null, 2))
+  fs.writeFileSync("tiemposNotasL.json", JSON.stringify(tiemposNotas, null, 2))
   console.log("✅ Archivo tiemposNotas.json generado con", tiemposNotas.length, "notas")
 })

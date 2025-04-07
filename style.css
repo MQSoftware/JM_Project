@@ -374,3 +374,39 @@ button {
     opacity: 0;
   }
 }
+
+.cadena {
+  position: absolute;
+  top: 40px;
+  width: 50vw;
+  height: 20px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #999 0 6px,
+    transparent 6px 12px
+  );
+  background-size: 12px 12px;
+  z-index: 1000;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+#cadena-izq {
+  left: 0;
+  transform-origin: right center;
+}
+
+#cadena-der {
+  right: 0;
+  transform-origin: left center;
+}
+
+.rota#cadena-izq {
+  transform: rotate(-45deg) translateX(-30px);
+  opacity: 0;
+}
+
+.rota#cadena-der {
+  transform: rotate(45deg) translateX(30px);
+  opacity: 0;
+}
+

@@ -34,9 +34,10 @@
             </div>
         </div>
     </header>
-    <audio id="cancion" src="guitar_alistate.mp3"></audio>
+    <audio id="cancion" src="Libre_Soy_Barak.mp3"></audio>
 
     <div class="game-box">
+    <!-- Boton de inicio -->
     <button id="play">
         P L A Y
         <div id="clip">
@@ -49,12 +50,19 @@
         <span id="leftArrow" class="arrow"></span>
     </button>
 
+    <!-- Cadena rompible -->
+    <div id="cadena-izq" class="cadena"></div>
+    <div id="cadena-der" class="cadena"></div>
+
+    <!-- Controles de puntaje -->
     <div id="puntos">0</div>
     <div id="combos">Combo: 0</div>
     <div id="booster">x1</div>
 
+    <!-- Notas musicales -->
     <div id="contenedor-notas"></div>
 
+    <!-- Botones de juego -->
     <div id="botones">
         <div class="boton" id="boton-0"></div>
         <div class="boton" id="boton-1"></div>
