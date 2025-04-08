@@ -8,10 +8,6 @@ let notas = []
 let tiemposNotas = []
 
 function iniciarJuego() {
-  document.getElementById("cadena-izq").style.display = "block"
-  document.getElementById("cadena-der").style.display = "block"
-  document.getElementById("cadena-izq").classList.remove("rota")
-  document.getElementById("cadena-der").classList.remove("rota")
   cancion.play()
   indiceNota = 0
   puntos = 0
@@ -55,8 +51,17 @@ function lanzarNota(index) {
   notas.push({ id: index, boton: botonAsignado })
 }
 
+function resaltarBoton(index) {
+  const boton = document.getElementById(`boton-${index}`)
+  boton.classList.add("brillar")
+  setTimeout(() => boton.classList.remove("brillar"), 200)
+}
+
 
 function botonPulsado(id) {
+  //Función resaltar boton
+  resaltarBoton(id)
+
   const nota = notas.find(n => n.boton == id)
   if (nota) {
     notas = notas.filter(n => n.id !== nota.id)
@@ -104,23 +109,25 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
-// Procesos de cadena
+// Evento que se activa al faltar 4.7 segundos de la cancion(lo que dura el GIF)
+// Evento que se activa cuando se conoce la duración de la canción
+cancion.addEventListener("loadedmetadata", () => {
+  const duracion = cancion.duration
+  const momentoMostrar = duracion - 4.1
 
-function romperCadena() {
-  const cadenaIzq = document.getElementById("cadena-izq")
-  const cadenaDer = document.getElementById("cadena-der")
-
-  if (cadenaIzq && cadenaDer) {
-    cadenaIzq.classList.add("rota")
-    cadenaDer.classList.add("rota")
-
-    // Opcional: desaparecer las mitades después de un tiempo
+  if (momentoMostrar > 0) {
     setTimeout(() => {
-      cadenaIzq.style.display = "none"
-      cadenaDer.style.display = "none"
-    }, 1000)
-  }
-}
+      const gifCadena = document.getElementById("cadena")
+      if (gifCadena) {
+        gifCadena.style.display = "block"
 
-// LLamando a evento para que se rompa la cadena
-cancion.addEventListener("ended", romperCadena)
+        // Se oculta después de 4.7 segundos (duración del GIF)
+        setTimeout(() => {
+          gifCadena.style.display = "none"
+        }, 4100)
+      }
+    }, momentoMostrar * 1000) // convertir a milisegundos
+  }
+})
+
+
