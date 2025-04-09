@@ -430,3 +430,21 @@ button {
 
 /* Cuadro de publi*/
 
+.publi{
+  width: 50%;
+  height: auto;
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+@media (max-width:780px){
+  .publi{
+    width: 90%;
+    height: auto;
+    display: none;
+  }
+}

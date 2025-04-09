@@ -16,6 +16,29 @@ function iniciarJuego() {
   document.getElementById("play").style.display = "none"
   actualizarPuntajes()
   programarNotas()
+
+  // 💥 Mostrar el gif justo al final, cuando inicia el juego realmente
+  const momentoMostrar = 60.152245
+  console.log("⛓️ Mostrando GIF en el segundo", momentoMostrar.toFixed(3))
+
+  if (momentoMostrar > 0) {
+    setTimeout(() => {
+      const gifCadena = document.getElementById("cadena")
+      const imgPubli = document.getElementById("publi")
+
+      if (gifCadena) {
+        gifCadena.style.display = "block"
+
+        // Oculta el GIF y muestra la imagen de publicidad al finalizar
+        setTimeout(() => {
+          gifCadena.style.display = "none"
+          if (imgPubli) {
+            imgPubli.style.display = "block"
+          }
+        }, 4100) // duración real del gif en milisegundos
+      }
+    }, momentoMostrar * 1000) // activar justo antes de terminar la canción
+  }
 }
 
 function programarNotas() {
@@ -107,28 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => {
       console.error("Error cargando tiemposNotas.json:", err)
     })
-})
-
-// Evento que se activa al faltar 4.7 segundos de la cancion(lo que dura el GIF)
-// Evento que se activa cuando se conoce la duración de la canción
-cancion.addEventListener("loadedmetadata", () => {
-  const duracion = cancion.duration
-  const momentoMostrar = duracion - 3.9
-
-  if (momentoMostrar > 0) {
-    setTimeout(() => {
-      const gifCadena = document.getElementById("cadena")
-      if (gifCadena) {
-        gifCadena.style.display = "block"
-
-        // Se oculta después de 4.7 segundos (duración del GIF)
-        setTimeout(() => {
-          gifCadena.style.display = "none"
-          
-        }, 3900)
-      }
-    }, momentoMostrar * 1000) // convertir a milisegundos
-  }
 })
 
 
