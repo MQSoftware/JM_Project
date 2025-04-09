@@ -368,7 +368,7 @@ button {
 #puntos, #combos, #booster {
   position: absolute;
   color: white;
-  font-size: 2rem;
+  font-size: 4vw;
   text-shadow: 2px 2px 4px black;
 }
 
@@ -415,3 +415,18 @@ button {
   z-index: 0;
   display: none;
 }
+
+@media (max-width: 780px){
+  #cadena{
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
+}
+
+/* Cuadro de publi*/
+

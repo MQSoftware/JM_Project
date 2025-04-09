@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Evento que se activa cuando se conoce la duración de la canción
 cancion.addEventListener("loadedmetadata", () => {
   const duracion = cancion.duration
-  const momentoMostrar = duracion - 4.1
+  const momentoMostrar = duracion - 3.9
 
   if (momentoMostrar > 0) {
     setTimeout(() => {
@@ -124,7 +124,8 @@ cancion.addEventListener("loadedmetadata", () => {
         // Se oculta después de 4.7 segundos (duración del GIF)
         setTimeout(() => {
           gifCadena.style.display = "none"
-        }, 4100)
+          
+        }, 3900)
       }
     }, momentoMostrar * 1000) // convertir a milisegundos
   }
