@@ -34,8 +34,11 @@ function iniciarJuego() {
           gifCadena.style.display = "none"
           if (imgPubli) {
             imgPubli.style.display = "block"
+            setTimeout(()=>{
+              imgPubli.style.opacity = "1"
+            }, 50)
           }
-        }, 4100) // duración real del gif en milisegundos
+        }, 3500) // duración real del gif en milisegundos
       }
     }, momentoMostrar * 1000) // activar justo antes de terminar la canción
   }
