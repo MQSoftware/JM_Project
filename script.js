@@ -17,7 +17,7 @@ function iniciarJuego() {
   actualizarPuntajes()
   programarNotas()
 
-  // 💥 Mostrar el gif justo al final, cuando inicia el juego realmente
+  // 💥 Mostrar el gif justo al final
   const momentoMostrar = 60.152245
   console.log("⛓️ Mostrando GIF en el segundo", momentoMostrar.toFixed(3))
 
@@ -34,13 +34,45 @@ function iniciarJuego() {
           gifCadena.style.display = "none"
           if (imgPubli) {
             imgPubli.style.display = "block"
-            setTimeout(()=>{
+            setTimeout(() => {
               imgPubli.style.opacity = "1"
             }, 50)
           }
-        }, 3500) // duración real del gif en milisegundos
+
+          // 🔊 Inicia parteDos y muestra invitación
+          const cancionParteDos = document.getElementById("cancionParteDos")
+          const invitacion = document.getElementById("invitacion")
+
+          if (invitacion && cancionParteDos) {
+            invitacion.style.display = "block"
+            setTimeout(() => {
+              invitacion.style.opacity = "1"
+            }, 50)
+
+            cancionParteDos.volume = 0
+            cancionParteDos.play()
+
+            // Fade in progresivo del audio
+            const duracionFade = 4000
+            const pasos = 40
+            let actual = 0
+            const incremento = 1 / pasos
+            const intervalo = duracionFade / pasos
+
+            const fadeAudio = setInterval(() => {
+              actual += incremento
+              if (actual >= 1) {
+                cancionParteDos.volume = 1
+                clearInterval(fadeAudio)
+              } else {
+                cancionParteDos.volume = actual
+              }
+            }, intervalo)
+          }
+
+        }, 3500) // duración del GIF en ms
       }
-    }, momentoMostrar * 1000) // activar justo antes de terminar la canción
+    }, momentoMostrar * 1000)
   }
 }
 
