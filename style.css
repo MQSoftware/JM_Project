@@ -7,6 +7,7 @@
 /* Fuente personalizada */
 body {
   font-family: "Tektur", sans-serif;
+  overflow: hidden;
 }
 
 /* IMAGEN DE FONDO*/
